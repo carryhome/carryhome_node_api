@@ -1,5 +1,8 @@
 # carryhome
 
+Note: 
+1. Raise all pull request to develop branch only
+
 1. Please use transactions whenever there are more than one DB action. It's a real pain to add it later. See https://medium.com/cashpositive/the-hitchhikers-guide-to-mongodb-transactions-with-mongoose-5bf8a6e22033 to know how to use transactions
 2. Use logger being initialized instead of console.log, so that we can ship logs easily in future.
 3. Use errorHandler class, if new functionality is to be added we can add there
