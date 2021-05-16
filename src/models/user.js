@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 import bcrypt from 'bcrypt'
+import {DEFAULT_ROLE, ROLE_ENUM} from '../security/roles'
 const opts = { timestamps: { currentTime: () => Math.round(new Date().getTime()) }}
 
 const UserSchema = mongoose.Schema({
@@ -7,7 +8,16 @@ const UserSchema = mongoose.Schema({
   lastName: { type: String, required: true, trim: true },
   tenantId: { type: mongoose.Schema.Types.ObjectId,  ref: 'Tenant', required: true, trim: true, index: true },
   email: { type: String, required: true, unique: true, trim: true },
-}, opts) 
+  password: { type: String, trim: true },
+  userRole: { type: [String], required: true, enum: ROLE_ENUM, default: DEFAULT_ROLE },
+  isActive: { type: Boolean, default : false },
+  isVerified: {type: Boolean, default: false },
+  archived: {type: Boolean, default: false },
+  loginAttempts: { type: Number, default: 0 },
+  lockUntil: {type: Number },
+  loginHistory: { type: Array, default: [] },
+  isOnline: { type: Boolean, default: false },
+}, opts)
 
 UserSchema.methods.toJSON = function() {
   // eslint-disable-next-line no-unused-vars
