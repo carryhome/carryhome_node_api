@@ -1,9 +1,11 @@
 import mongoose from 'mongoose'
 import UserSchema from '../models/user'
+import TeamSchema from '../models/team'
 import {ObjectId} from 'mongodb'
 
 const models = {
   User: mongoose.model('User', UserSchema),
+  Team: mongoose.model('Team', TeamSchema),
 }
 
 // explicitly create each collection
@@ -27,4 +29,5 @@ async function createDummyUsers(){
 createDummyUsers()
 module.exports = {
   User: models.User,
+  Team: models.Team,
 }
