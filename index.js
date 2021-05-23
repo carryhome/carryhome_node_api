@@ -14,6 +14,7 @@ import {authenticate} from './src/security/auth'
 import {filterTenantRecord} from './src/security/roles'
 import userSecureRoute from './src/routes/secure/user'
 import userUnSecureRoute from './src/routes/unsecure/user'
+import teamUnSecureRoute from './src/routes/unsecure/team'
 
 mongoose.set('useCreateIndex', true)
 const app = express()
@@ -51,6 +52,7 @@ app.get('/', function(req, res){
 global.clientConnection =  initClientDbConnection()
  
 userUnSecureRoute(app)
+teamUnSecureRoute(app)
 
 /* route require authentication */
 app.use(authenticate)
