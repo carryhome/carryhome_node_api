@@ -47,10 +47,10 @@ export async function  deleteTeam(req, res){
 
 export async function  createTeam(req, res){
   try {
-    let ObjectToTeam = ['fullName', 'email', 'designation', 'experience', 'about']
+    let ObjectToTeam = ['firstName', 'email', 'designation', 'experience', 'about']
     let createTeam  = _.pick(req.body, ObjectToTeam)
     let result = await Team.create(createTeam)
-    res.status(201).send(result)
+    res.status(201).send("New member added to team")
   } catch(err) {
     res.status(500).send({status: 'error', message: err})
   }
