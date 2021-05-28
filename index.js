@@ -13,6 +13,7 @@ import {pagination} from './src/helpers/pagination'
 import {authenticate} from './src/security/auth'
 import {filterTenantRecord} from './src/security/roles'
 import userSecureRoute from './src/routes/secure/user'
+import teamUnSecureRoute from './src/routes/unsecure/team'
 import userUnSecureRoute from './src/routes/unsecure/user'
 import teamUnSecureRoute from './src/routes/unsecure/team'
 
@@ -51,6 +52,7 @@ app.get('/', function(req, res){
 /* Initialising the database connection */
 global.clientConnection =  initClientDbConnection()
  
+teamUnSecureRoute(app)
 userUnSecureRoute(app)
 teamUnSecureRoute(app)
 

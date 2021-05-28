@@ -1,7 +1,6 @@
 import {Team} from '../models/model'
 import _ from 'lodash'
 import {ObjectId} from 'mongodb' 
-
 /* get all teams */
 export async function  getTeams(req, res){
   try {

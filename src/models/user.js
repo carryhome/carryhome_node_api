@@ -17,7 +17,7 @@ const UserSchema = mongoose.Schema({
   lockUntil: {type: Number },
   loginHistory: { type: Array, default: [] },
   isOnline: { type: Boolean, default: false },
-}, opts) 
+}, opts)
 
 UserSchema.methods.toJSON = function() {
   // eslint-disable-next-line no-unused-vars

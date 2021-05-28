@@ -1,5 +1,4 @@
 import mongoose from 'mongoose'
-
 const opts = { timestamps: { currentTime: () => Math.round(new Date().getTime()) }}
 
 const TeamSchema = mongoose.Schema({
