@@ -29,5 +29,5 @@ async function createDummyUsers(){
 createDummyUsers()
 module.exports = {
   User: models.User,
-  Team: models.Team
+  Team: models.Team,
 }

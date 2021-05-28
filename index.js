@@ -15,6 +15,7 @@ import {filterTenantRecord} from './src/security/roles'
 import userSecureRoute from './src/routes/secure/user'
 import teamUnSecureRoute from './src/routes/unsecure/team'
 import userUnSecureRoute from './src/routes/unsecure/user'
+import teamUnSecureRoute from './src/routes/unsecure/team'
 
 mongoose.set('useCreateIndex', true)
 const app = express()
@@ -53,6 +54,7 @@ global.clientConnection =  initClientDbConnection()
  
 teamUnSecureRoute(app)
 userUnSecureRoute(app)
+teamUnSecureRoute(app)
 
 /* route require authentication */
 app.use(authenticate)
